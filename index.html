@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Server Port Scan</title>
+</head>
+<body>
+    <form action="/scan" method="post">
+        <label for="range">Choose a range:</label>
+        <div id="rangeValue">
+            Min: <input type="number" id="rangeMin" name="rangeMin" min="0" max="65535" step="1">
+            Max: <input type="number" id="rangeMax" name="rangeMax" min="0" max="65535" step="1">
+        </div><br>
+        
+        <div id="options"><label for="option_local">Lokalnie:</label>
+            <input type="radio" id="option" name="option" value="local"><br>
+            
+            <label for="option_rem">Podany URL:</label>
+            <input type="radio" id="option" name="option" value="rem"><br><br>
+        </div>
+        
+        
+        <label for="url">URL:</label>
+        <input type="text" id="url" name="url"><br><br>
+        
+        <input type="submit" value="Submit" >
+    </form>
+</body>
+</html>
