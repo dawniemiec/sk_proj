@@ -15,6 +15,26 @@ app.post('/scan', async (req, res) => {
     let rangeMin = req.body.rangeMin;
     let rangeMax = req.body.rangeMax;
     let chosenOption = req.body.option;
+    if (rangeMin > rangeMax) {
+        res.send({ error: 'Invalid range' });
+        return;
+    }
+    if(rangeMin < 1 || rangeMax > 65535){
+        res.send({ error: 'Invalid range' });
+        return;
+    }
+    if (chosenOption != 'local' && chosenOption != 'rem') {
+        res.send({ error: 'Invalid option' });
+        return;
+    }
+    if(chosenOption == 'rem' && req.body.url == ''){
+        res.send({ error: 'Invalid URL' });
+        return;
+    }
+    if(rangeMax == null || rangeMin == null){
+        res.send({ error: 'Invalid range' });
+        return;
+    }
 
     if (chosenOption == 'local') {
         console.log('Scanning locally');
